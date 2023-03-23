@@ -1,11 +1,11 @@
 import Nevbar from "./components/Nevbar";
-import Home from "./pages/Home";
+import GroupCE from "./pages/GroupCE";
 
 function App() {
   return (
     <>
     <Nevbar />
-    <Home />
+    <GroupCE />
     </>
   );
 }
