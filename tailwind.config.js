@@ -9,7 +9,7 @@ module.exports = {
         g_to: "#F0568A",
         w_link: "#E56135",
         apply_link: "#02B875",
-        font_color: "#232323",
+        font_color: "#000",
         button_bg: "#2F6CE5",
         dropdown_bg: "#EDEEF0",
         follow_bg: "#000000",
