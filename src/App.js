@@ -1,7 +1,12 @@
+import Nevbar from "./components/Nevbar";
+import Home from "./pages/Home";
+
 function App() {
   return (
-    <div className="App">
-    </div>
+    <>
+    <Nevbar />
+    <Home />
+    </>
   );
 }
 
