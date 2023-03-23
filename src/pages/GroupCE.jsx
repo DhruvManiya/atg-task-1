@@ -6,8 +6,10 @@ import { count, ArticalCount, EducationCount, MeetupCount, JobCount } from "../p
 import PostToShow from "../components/PostToShow";
 import postToShowContext from "../context/postToShowContext";
 import RecamendadeGroups from "../components/RecamendadeGroups";
+import ModalContext from "../context/ModalContext";
 const GroupCE = () => {
   const { status, setStatus } = useContext(postToShowContext);
+  const {setIsOpen} = useContext(ModalContext);
   const [joinGroup, setJoinGroup] = useState(false);
   return (
     <main className="mt-[4.5rem]">
@@ -97,7 +99,7 @@ const GroupCE = () => {
         </div>
         <div className="flex justify-center items-center gap-4">
           <DropDown name="Write a post" />
-          <div onClick={() => setJoinGroup(!joinGroup)}>
+          <div onClick={() => {sessionStorage.length ===0 ? setIsOpen(true) : setJoinGroup(!joinGroup)}}>
             {!joinGroup ? (
               <div className=" bg-button_bg rounded-[0.25rem] text-[#fff] px-4 py-2 cursor-pointer">
                 <GroupAddIcon className="mr-3" />
