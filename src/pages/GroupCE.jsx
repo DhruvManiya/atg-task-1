@@ -1,16 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import DropDown from "../ui/DropDown";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
-import { count } from "../posts/posts.js";
-import { ArticalCount } from "../posts/posts.js";
-import { EducationCount } from "../posts/posts.js";
-import { MeetupCount } from "../posts/posts.js";
-import { JobCount } from "../posts/posts.js";
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import { count, ArticalCount, EducationCount, MeetupCount, JobCount } from "../posts/posts.js";
 import PostToShow from "../components/PostToShow";
 import postToShowContext from "../context/postToShowContext";
 import RecamendadeGroups from "../components/RecamendadeGroups";
 const GroupCE = () => {
-  const {status,setStatus} = useContext(postToShowContext);
+  const { status, setStatus } = useContext(postToShowContext);
+  const [joinGroup, setJoinGroup] = useState(false);
   return (
     <main className="mt-[4.5rem]">
       <section>
@@ -48,7 +46,9 @@ const GroupCE = () => {
           >
             Article{" "}
             <span
-              className={`${status === "Article" ? "opacity-100" : "opacity-0"}`}
+              className={`${
+                status === "Article" ? "opacity-100" : "opacity-0"
+              }`}
             >
               ({ArticalCount})
             </span>
@@ -97,15 +97,24 @@ const GroupCE = () => {
         </div>
         <div className="flex justify-center items-center gap-4">
           <DropDown name="Write a post" />
-          <div className=" bg-button_bg rounded-[0.25rem] text-[#fff] px-4 py-2 cursor-pointer">
-            <GroupAddIcon className="mr-3" />
-            Join Group
+          <div onClick={() => setJoinGroup(!joinGroup)}>
+            {!joinGroup ? (
+              <div className=" bg-button_bg rounded-[0.25rem] text-[#fff] px-4 py-2 cursor-pointer">
+                <GroupAddIcon className="mr-3" />
+                Join Group
+              </div>
+            ) : (
+              <div className=" rounded-[0.25rem] text-[#6A6A6B] px-4 py-2 cursor-pointer border-[1px] border-[#6A6A6B]">
+                <ExitToAppIcon className="mr-3" />
+                Leave Group
+              </div>
+            )}
           </div>
         </div>
       </section>
       <section className="flex justify-between items-center  mx-[15rem] mt-10 pb-[0.4rem]">
         <PostToShow />
-        <RecamendadeGroups />
+        <RecamendadeGroups joinGroup={joinGroup} />
       </section>
     </main>
   );

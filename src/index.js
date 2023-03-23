@@ -3,14 +3,17 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import PostToShowContextProvider from './context/postToShowContextProvider'
+import PostToShowContextProvider from "./context/postToShowContextProvider";
+import ModalContextProvider from "./context/ModalContextProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <PostToShowContextProvider>
-      <App />
-    </PostToShowContextProvider>
+    <ModalContextProvider>
+      <PostToShowContextProvider>
+        <App />
+      </PostToShowContextProvider>
+    </ModalContextProvider>
   </React.StrictMode>
 );
 

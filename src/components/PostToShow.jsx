@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
+import React, { memo, useContext } from "react";
 import posts from "../posts/posts";
 import postToShowContext from "../context/postToShowContext";
-import PostCard from './PostCard'
+import PostCard from "./postCard";
 const PostToShow = () => {
   let shownPosts;
   const { status } = useContext(postToShowContext);
@@ -24,4 +24,4 @@ const PostToShow = () => {
   );
 };
 
-export default PostToShow;
+export default memo(PostToShow);
