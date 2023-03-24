@@ -13,7 +13,6 @@ const Login = ({ onClose }) => {
   const passwordRef = useRef();
   const { setIsOpen } = useContext(ModalContext);
 
-
   const submitHandler = (e) => {
     e.preventDefault();
     setError(true);
@@ -27,8 +26,15 @@ const Login = ({ onClose }) => {
       </section>
       <section className="flex justify-evenly items-center mx-8">
         <div className="xl:w-[35%] sm:w-[65%] w-full">
-          <h1 className="md:hidden my-6 text-[1.75rem] font-[900] flex justify-between items-center">Welcome Back !! <div onClick={() => setIsOpen(false)}><CloseIcon /></div></h1>
-          <h1 className=" md:block hidden my-6 text-[1.75rem] font-[900]">Sign In</h1>
+          <h1 className="md:hidden my-6 text-[1.75rem] font-[900] flex justify-between items-center">
+            Welcome Back !!{" "}
+            <div onClick={() => setIsOpen(false)}>
+              <CloseIcon />
+            </div>
+          </h1>
+          <h1 className=" md:block hidden my-6 text-[1.75rem] font-[900]">
+            Sign In
+          </h1>
           {error && (
             <p className={`${error && " text-red-400"}`}>
               Please input valid input
@@ -55,7 +61,17 @@ const Login = ({ onClose }) => {
                 <VisibilityIcon />
               </div>
             </div>
-            <Button name="Create Account" type="submit" />
+            <div className=" flex justify-between items-center w-full">
+              <div className="md:w-full w-[50%]">
+                <Button name="Sign In" type="submit" />
+              </div>
+              <span
+                onClick={() => onClose()}
+                className="md:hidden border-black underline cursor-pointer text-[0.9rem]"
+              >
+                or, Create Account
+              </span>
+            </div>
           </form>
           <div className="mb-3 py-2 flex justify-center items-center border-[1px] border-gray-300 gap-3 cursor-pointer">
             <FacebookIcon className=" text-button_bg" />
@@ -67,15 +83,6 @@ const Login = ({ onClose }) => {
           </div>
           <div className="my-3 py-2 flex justify-center items-center cursor-pointer font-[700] text-[1.15rem]">
             <p>Forgot Passwod?</p>
-          </div>
-          <div className="font-[600] text-[1.15rem] md:hidden flex justify-center items-center mb-8">
-            <span>Don’t have an account yet?</span>
-            <span
-              className=" mx-2 text-button_bg cursor-pointer"
-              onClick={() => onClose()}
-            >
-              Create new for free!
-            </span>
           </div>
         </div>
         <div className=" md:flex hidden justify-center items-center flex-col pt-8 ml-8">
