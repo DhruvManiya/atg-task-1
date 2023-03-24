@@ -8,7 +8,7 @@ const Nevbar = () => {
   const [joinGroup, setJoinGroup] = useState(false);
   return (
     <>
-      <nav className=" fixed h-[4.5rem] top-0 left-0 right-0 w-full md:flex hidden justify-between items-center lg:px-[4.5rem] px-[1rem] z-50 bg-primary">
+      <nav className=" fixed h-[4.5rem] top-0 left-0 right-0 w-full md:flex hidden justify-between items-center lg:px-[4.5rem] px-[1rem] z-50 bg-primary border-b-[1px]">
         <img src="./logo.PNG" className="h-[2.5rem] w-auto" alt="logo" />
         <div>
           <SearchIcon className="text-[#7A7A7A]" />

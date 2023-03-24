@@ -34,7 +34,7 @@ const GroupCE = () => {
           </div>
         </div>
       </section>
-      <section className="md:flex hidden justify-between items-center  2xl:mx-[15rem] xl:mx-[12rem] lg:mx-[7rem] mx-[2rem] mt-10 border-b-[1px] pb-[0.4rem]">
+      <section className="md:flex hidden sticky top-[4.5rem] bg-primary justify-between items-center  2xl:mx-[15rem] xl:mx-[12rem] lg:mx-[7rem] mx-[2rem] mt-8 pt-2 border-b-[1px] pb-[0.4rem]">
         <div>
           <span
             className={` py-4 font-[500] text-[1.05rem] border-b-2 ${
