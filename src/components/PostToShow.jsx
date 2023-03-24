@@ -1,7 +1,7 @@
 import React, { memo, useContext } from "react";
 import posts from "../posts/posts";
 import postToShowContext from "../context/postToShowContext";
-import PostCard from "./postCard";
+import PostCard from "./Post";
 const PostToShow = () => {
   let shownPosts;
   const { status } = useContext(postToShowContext);
