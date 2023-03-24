@@ -28,11 +28,11 @@ const PostCard = ({ post }) => {
         </div>
       )}
       {post.header && (
-        <div className="flex justify-between items-center  px-6 py-2">
+        <div className=" flex justify-between items-center  px-6 py-2">
           <h1 className="lg:text-[1.5rem] text-[1.25rem] font-[700]">
             {post.header}
           </h1>
-          <div className=" relative" onClick={() => setShowList(!showList)}>
+          <div onClick={() => setShowList(!showList)}>
             <div
               className={` cursor-pointer lg:p-2 rounded-md ${
                 showList && "bg-gray-300"

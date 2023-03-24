@@ -143,7 +143,7 @@ const GroupCE = () => {
           </div>
         </div>
       </section>
-      <section className="flex md:hidden justify-between items-center mx-[2rem] mt-10 border-b-[1px] pb-[0.4rem]">
+      <section className="flex md:hidden sticky top-0 justify-between items-center px-[2rem] z-[1000000] bg-primary pt-10 border-b-[1px] pb-[0.4rem]">
         <h1>
           Posts (
           {(status === "Job" && JobCount) ||
