@@ -3,6 +3,7 @@ import DropDown from "../ui/DropDown";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import {
   count,
   ArticalCount,
@@ -127,10 +128,12 @@ const GroupCE = () => {
             }}
           >
             {!joinGroup ? (
-              <div className=" bg-button_bg rounded-[0.25rem] text-[#fff] lg:px-4 px-3 py-2 cursor-pointer">
-                <GroupAddIcon className="lg:mr-3 mr-2" />
-                Join Group
-              </div>
+              <>
+                <div className=" bg-button_bg rounded-[0.25rem] text-[#fff] lg:px-4 px-3 py-2 cursor-pointer">
+                  <GroupAddIcon className="lg:mr-3 mr-2" />
+                  Join Group
+                </div>
+              </>
             ) : (
               <div className=" rounded-[0.25rem] text-[#6A6A6B] lg:px-4 px-3 py-2 cursor-pointer border-[1px] border-[#6A6A6B]">
                 <ExitToAppIcon className="lg:mr-3 mr-2" />
@@ -150,7 +153,10 @@ const GroupCE = () => {
             (status === "All post" && count)}
           )
         </h1>
-        <div className="flex justify-center items-center" onClick={() => setShowList(!showList)}>
+        <div
+          className="flex justify-center items-center"
+          onClick={() => setShowList(!showList)}
+        >
           <h3>Fillter :</h3>
           <div className="flex justify-center items-center">
             <p className="ml-1">
@@ -165,20 +171,35 @@ const GroupCE = () => {
             </div>
             {showList && (
               <ul className=" absolute w-[10rem] bg-primary -translate-x-[2.5rem] translate-y-[6rem] mt-2 flex flex-col items-center justify-center rounded-md shadow-xl border-[1px]">
-                <li className="w-full h-8 cursor-pointer hover:bg-gray-300 py-1 pl-4" onClick={() => setStatus("All post")}>
+                <li
+                  className="w-full h-8 cursor-pointer hover:bg-gray-300 py-1 pl-4"
+                  onClick={() => setStatus("All post")}
+                >
                   All
                 </li>
-                <li className="w-full h-8 cursor-pointer hover:bg-gray-300 py-1 pl-4" onClick={() => setStatus("Article")}>
-                Article
+                <li
+                  className="w-full h-8 cursor-pointer hover:bg-gray-300 py-1 pl-4"
+                  onClick={() => setStatus("Article")}
+                >
+                  Article
                 </li>
-                <li className="w-full h-8 cursor-pointer hover:bg-gray-300 py-1 pl-4" onClick={() => setStatus("Meetup")}>
-                Event
+                <li
+                  className="w-full h-8 cursor-pointer hover:bg-gray-300 py-1 pl-4"
+                  onClick={() => setStatus("Meetup")}
+                >
+                  Event
                 </li>
-                <li className="w-full h-8 cursor-pointer hover:bg-gray-300 py-1 pl-4" onClick={() => setStatus("Education")}>
-                Education
+                <li
+                  className="w-full h-8 cursor-pointer hover:bg-gray-300 py-1 pl-4"
+                  onClick={() => setStatus("Education")}
+                >
+                  Education
                 </li>
-                <li className="w-full h-8 cursor-pointer hover:bg-gray-300 py-1 pl-4" onClick={() => setStatus("Job")}>
-                Job
+                <li
+                  className="w-full h-8 cursor-pointer hover:bg-gray-300 py-1 pl-4"
+                  onClick={() => setStatus("Job")}
+                >
+                  Job
                 </li>
               </ul>
             )}
@@ -189,6 +210,10 @@ const GroupCE = () => {
         <PostToShow />
         <RecamendadeGroups joinGroup={joinGroup} />
       </section>
+
+      <div className=" fixed shadow-md h-[4rem] w-[4rem] bottom-[1.5rem] right-[1.5rem] bg-gradient-to-tr rounded-full from-g_from to-g_to flex justify-center items-center z-[10] md:hidden text-[#fff] cursor-pointer">
+        <ModeEditIcon />
+      </div>
     </main>
   );
 };

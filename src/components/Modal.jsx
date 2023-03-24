@@ -6,7 +6,6 @@ import Login from "../pages/Login";
 const Modal = () => {
   const [signin, setSignin] = useState(false);
   const { isOpen, setIsOpen } = useContext(ModalContext);
-  console.log(isOpen);
   if (!isOpen) return null;
   return (
     <>
