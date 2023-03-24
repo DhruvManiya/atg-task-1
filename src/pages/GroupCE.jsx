@@ -1,33 +1,45 @@
 import React, { useContext, useState } from "react";
 import DropDown from "../ui/DropDown";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
-import ExitToAppIcon from '@mui/icons-material/ExitToApp';
-import { count, ArticalCount, EducationCount, MeetupCount, JobCount } from "../posts/posts.js";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import {
+  count,
+  ArticalCount,
+  EducationCount,
+  MeetupCount,
+  JobCount,
+} from "../posts/posts.js";
 import PostToShow from "../components/PostToShow";
 import postToShowContext from "../context/postToShowContext";
 import RecamendadeGroups from "../components/RecamendadeGroups";
 import ModalContext from "../context/ModalContext";
 const GroupCE = () => {
   const { status, setStatus } = useContext(postToShowContext);
-  const {setIsOpen} = useContext(ModalContext);
+  const { setIsOpen } = useContext(ModalContext);
   const [joinGroup, setJoinGroup] = useState(false);
+  const [showList, setShowList] = useState(false);
   return (
-    <main className="mt-[4.5rem]">
+    <main className="md:mt-[4.5rem] mt-0">
       <section>
-        <div className="bg1 h-[35rem] bg-cover bg-center relative">
-          <div className=" absolute inset-0 bg-[rgba(0,0,0,0.5)] pt-[23.5rem] pl-[10rem] z-10 text-primary">
-            <h1 className="text-[3rem] font-[900]">Computer Engineering</h1>
-            <p className="text-[1.25rem]">
+        <div className="bg1 md:h-[35rem] sm:h-[25rem] h-[20rem] bg-cover bg-center relative">
+          <div className=" absolute inset-0 bg-[rgba(0,0,0,0.5)] md:pt-[23.5rem] sm:pt-[16rem] pt-[13.5rem] md:pl-[10rem] sm:pl-[5rem] pl-[2rem] z-10 text-primary">
+            <h1 className="md:text-[3rem] sm:text-[2.5rem] text-[1.5rem] font-[900]">
+              Computer Engineering
+            </h1>
+            <p className="md:text-[1.25rem] sm:text-[1.1rem] text-[1rem]">
               142,765 Computer Engineers follow this
             </p>
           </div>
         </div>
       </section>
-      <section className="flex justify-between items-center  mx-[15rem] mt-10 border-b-[1px] pb-[0.4rem]">
+      <section className="md:flex hidden justify-between items-center  2xl:mx-[15rem] xl:mx-[12rem] lg:mx-[7rem] mx-[2rem] mt-10 border-b-[1px] pb-[0.4rem]">
         <div>
           <span
-            className={`p-4 font-[500] text-[1.05rem] border-b-2 ${
-              status === "All post" ? "border-[#232323]" : "border-0"
+            className={` py-4 font-[500] text-[1.05rem] border-b-2 ${
+              status === "All post"
+                ? "border-[#232323] 2xl:p-4 pl-2 pr-4"
+                : "border-0 px-0"
             } cursor-pointer transition-all`}
             onClick={() => setStatus("All post")}
           >
@@ -41,8 +53,10 @@ const GroupCE = () => {
             </span>
           </span>
           <span
-            className={`p-4 font-[500] text-[1.05rem] border-b-2 ${
-              status === "Article" ? "border-[#232323]" : "border-0"
+            className={` py-4 font-[500] text-[1.05rem] border-b-2 ${
+              status === "Article"
+                ? "border-[#232323] 2xl:p-4 pl-2 pr-4"
+                : "border-0 px-0"
             } cursor-pointer transition-all`}
             onClick={() => setStatus("Article")}
           >
@@ -56,8 +70,10 @@ const GroupCE = () => {
             </span>
           </span>
           <span
-            className={`p-4 font-[500] text-[1.05rem] border-b-2 ${
-              status === "Meetup" ? "border-[#232323]" : "border-0"
+            className={` py-4 font-[500] text-[1.05rem] border-b-2 ${
+              status === "Meetup"
+                ? "border-[#232323] 2xl:p-4 pl-2 pr-4"
+                : "border-0 px-0"
             } cursor-pointer transition-all`}
             onClick={() => setStatus("Meetup")}
           >
@@ -69,8 +85,10 @@ const GroupCE = () => {
             </span>
           </span>
           <span
-            className={`p-4 font-[500] text-[1.05rem] border-b-2 ${
-              status === "Education" ? "border-[#232323]" : "border-0"
+            className={` py-4 font-[500] text-[1.05rem] border-b-2 ${
+              status === "Education"
+                ? "border-[#232323] 2xl:p-4 pl-2 pr-4"
+                : "border-0 px-0"
             } cursor-pointer transition-all`}
             onClick={() => setStatus("Education")}
           >
@@ -84,8 +102,10 @@ const GroupCE = () => {
             </span>
           </span>
           <span
-            className={`p-4 font-[500] text-[1.05rem] border-b-2 ${
-              status === "Job" ? "border-[#232323]" : "border-0"
+            className={` py-4 font-[500] text-[1.05rem] border-b-2 ${
+              status === "Job"
+                ? "border-[#232323] 2xl:p-4 pl-2 pr-4"
+                : "border-0 px-0"
             } cursor-pointer transition-all`}
             onClick={() => setStatus("Job")}
           >
@@ -99,22 +119,73 @@ const GroupCE = () => {
         </div>
         <div className="flex justify-center items-center gap-4">
           <DropDown name="Write a post" />
-          <div onClick={() => {sessionStorage.length ===0 ? setIsOpen(true) : setJoinGroup(!joinGroup)}}>
+          <div
+            onClick={() => {
+              sessionStorage.length === 0
+                ? setIsOpen(true)
+                : setJoinGroup(!joinGroup);
+            }}
+          >
             {!joinGroup ? (
-              <div className=" bg-button_bg rounded-[0.25rem] text-[#fff] px-4 py-2 cursor-pointer">
-                <GroupAddIcon className="mr-3" />
+              <div className=" bg-button_bg rounded-[0.25rem] text-[#fff] lg:px-4 px-3 py-2 cursor-pointer">
+                <GroupAddIcon className="lg:mr-3 mr-2" />
                 Join Group
               </div>
             ) : (
-              <div className=" rounded-[0.25rem] text-[#6A6A6B] px-4 py-2 cursor-pointer border-[1px] border-[#6A6A6B]">
-                <ExitToAppIcon className="mr-3" />
+              <div className=" rounded-[0.25rem] text-[#6A6A6B] lg:px-4 px-3 py-2 cursor-pointer border-[1px] border-[#6A6A6B]">
+                <ExitToAppIcon className="lg:mr-3 mr-2" />
                 Leave Group
               </div>
             )}
           </div>
         </div>
       </section>
-      <section className="flex justify-between items-center  mx-[15rem] mt-10 pb-[0.4rem]">
+      <section className="flex md:hidden justify-between items-center mx-[2rem] mt-10 border-b-[1px] pb-[0.4rem]">
+        <h1>
+          Posts (
+          {(status === "Job" && JobCount) ||
+            (status === "Education" && EducationCount) ||
+            (status === "Meetup" && MeetupCount) ||
+            (status === "Article" && ArticalCount) ||
+            (status === "All post" && count)}
+          )
+        </h1>
+        <div className="flex justify-center items-center" onClick={() => setShowList(!showList)}>
+          <h3>Fillter :</h3>
+          <div className="flex justify-center items-center">
+            <p className="ml-1">
+              {(status === "Job" && "Job") ||
+                (status === "Education" && "Education") ||
+                (status === "Meetup" && "Event") ||
+                (status === "Article" && "Article") ||
+                (status === "All post" && "All")}
+            </p>
+            <div>
+              <ArrowDropDownIcon />
+            </div>
+            {showList && (
+              <ul className=" absolute w-[10rem] bg-primary -translate-x-[2.5rem] translate-y-[6rem] mt-2 flex flex-col items-center justify-center rounded-md shadow-xl border-[1px]">
+                <li className="w-full h-8 cursor-pointer hover:bg-gray-300 py-1 pl-4" onClick={() => setStatus("All post")}>
+                  All
+                </li>
+                <li className="w-full h-8 cursor-pointer hover:bg-gray-300 py-1 pl-4" onClick={() => setStatus("Article")}>
+                Article
+                </li>
+                <li className="w-full h-8 cursor-pointer hover:bg-gray-300 py-1 pl-4" onClick={() => setStatus("Meetup")}>
+                Event
+                </li>
+                <li className="w-full h-8 cursor-pointer hover:bg-gray-300 py-1 pl-4" onClick={() => setStatus("Education")}>
+                Education
+                </li>
+                <li className="w-full h-8 cursor-pointer hover:bg-gray-300 py-1 pl-4" onClick={() => setStatus("Job")}>
+                Job
+                </li>
+              </ul>
+            )}
+          </div>
+        </div>
+      </section>
+      <section className="flex justify-between items-center  2xl:mx-[15rem] xl:mx-[12rem] lg:mx-[7rem] sm:mx-[2rem] m-0 mt-10 pb-[0.4rem]">
         <PostToShow />
         <RecamendadeGroups joinGroup={joinGroup} />
       </section>

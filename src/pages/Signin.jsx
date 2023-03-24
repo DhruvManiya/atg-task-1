@@ -4,9 +4,10 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import GoogleIcon from "@mui/icons-material/Google";
 import Button from "../ui/Button";
 import ModalContext from "../context/ModalContext";
+import CloseIcon from "@mui/icons-material/Close";
 
 const Signin = ({ onClose }) => {
-    const {setIsOpen} = useContext(ModalContext);
+  const { setIsOpen } = useContext(ModalContext);
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(false);
   const firstNameRef = useRef();
@@ -24,42 +25,44 @@ const Signin = ({ onClose }) => {
       ConfirmPasswordRef.current.value &&
       passwordRef.current.value === ConfirmPasswordRef.current.value
     ) {
-        sessionStorage.setItem(
-            "firstName",firstNameRef.current.value,
-            "lastName",lastNameRef.current.value,
-            "email",emailRef.current.value,
-            "password",ConfirmPasswordRef.current.value,
-          );
-          setIsOpen(false);
-          setError(false);
+      sessionStorage.setItem("firstName", firstNameRef.current.value);
+      sessionStorage.setItem("lastName", lastNameRef.current.value);
+      sessionStorage.setItem("email", emailRef.current.value);
+
+      setIsOpen(false);
+      setError(false);
     } else {
-        setError(true);
+      setError(true);
     }
   };
 
   return (
     <main className="h-[38rem] w-full bg-primary rounded-md">
-      <section className="flex justify-center items-center h-[3.125rem] rounded-t-md w-full bg-dropdown_bg text-createAccount_desc font-[600]">
+      <section className="md:flex hidden justify-center items-center h-[3.125rem] rounded-t-md w-full bg-dropdown_bg text-createAccount_desc font-[600]">
         Let's learn, share & inspire each other with our passion for computer
         engineering. Sign up now 🤘🏼
       </section>
-      <section className="flex justify-evenly items-center">
-        <div>
-          <h1 className="my-6 text-[1.75rem] font-[900]">Create Account</h1>
-          {error && <p className={`${error && ' text-red-400'}`}>Please input valid input</p>}
-          <form onSubmit={submitHandler} className="flex flex-col">
-            <div className="flex">
+      <section className="flex justify-evenly items-center mx-8">
+        <div className="sm:w-[70%] w-full">
+          <h1 className="my-6 text-[1.75rem] font-[900] flex justify-between items-center">Create Account <div onClick={() => setIsOpen(false)} className="md:hidden block"><CloseIcon /></div></h1>
+          {error && (
+            <p className={`${error && " text-red-400"}`}>
+              Please input valid input
+            </p>
+          )}
+          <form onSubmit={submitHandler} className="flex flex-col w-full">
+            <div className="flex w-full">
               <input
                 ref={firstNameRef}
                 type="text"
                 placeholder="First Name"
-                className=" outline-none h-[3rem] border-y-[1px] border-l-[1px] border-gray-300 p-3"
+                className=" outline-none h-[3rem] border-y-[1px] border-l-[1px] border-gray-300 p-3 w-[50%]"
               />
               <input
                 ref={lastNameRef}
                 type="text"
                 placeholder="Last Name"
-                className=" outline-none h-[3rem] border-[1px] border-gray-300 p-3"
+                className=" outline-none h-[3rem] border-[1px] border-gray-300 p-3 w-[50%]"
               />
             </div>
             <input
@@ -98,8 +101,17 @@ const Signin = ({ onClose }) => {
             <GoogleIcon className="text-gray-400" />
             <span> Sign up with Google </span>
           </div>
+          <div className="font-[600] text-[1.15rem] md:hidden flex justify-center items-center">
+            <span>Already have an account?</span>
+            <span
+              className=" mx-2 text-button_bg cursor-pointer"
+              onClick={() => onClose()}
+            >
+              Sign In
+            </span>
+          </div>
         </div>
-        <div className=" flex justify-center items-center flex-col">
+        <div className=" md:flex hidden justify-center items-center flex-col ml-8">
           <div className="font-[600] text-[1.15rem]">
             <span>Already have an account?</span>
             <span

@@ -13,7 +13,7 @@ const PostToShow = () => {
 
   return (
     <>
-      <div className="flex flex-col w-[55%]">
+      <div className="flex flex-col 2xl:w-[55%] md:w-[60%] w-full">
         {shownPosts &&
           shownPosts.map((post) => (
             <PostCard post={post} />

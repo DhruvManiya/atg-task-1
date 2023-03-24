@@ -10,7 +10,7 @@ const PostCard = ({ post }) => {
   const [showList, setShowList] = useState(false);
   return (
     <div
-      className=" w-full ml-[5rem] rounded-[0.5rem] border-[1px] shadow-md my-2"
+      className=" w-full 2xl:ml-[5rem] sm:ml-[0.5rem] m-0 sm:rounded-[0.5rem] border-[1px] shadow-md my-2"
       key={post.key}
     >
       <div>
@@ -18,21 +18,23 @@ const PostCard = ({ post }) => {
           <img
             src={post.img}
             alt=""
-            className="h-[13.75rem] w-full object-cover rounded-t-[0.5rem]"
+            className="h-[13.75rem] w-full object-cover sm:rounded-t-[0.5rem]"
           />
         )}
       </div>
       {post.status && (
-        <div className="px-6 pt-4 pb-2 font-[500]">
+        <div className="px-6 pt-4 pb-2 font-[500] lg:text-[1rem] text-[0.9rem]">
           {post.sign} {post.status}
         </div>
       )}
       {post.header && (
         <div className="flex justify-between items-center  px-6 py-2">
-          <h1 className="text-[1.5rem] font-[700]">{post.header}</h1>
+          <h1 className="lg:text-[1.5rem] text-[1.25rem] font-[700]">
+            {post.header}
+          </h1>
           <div className=" relative" onClick={() => setShowList(!showList)}>
             <div
-              className={` cursor-pointer p-2 rounded-md ${
+              className={` cursor-pointer lg:p-2 rounded-md ${
                 showList && "bg-gray-300"
               }`}
             >
@@ -55,7 +57,9 @@ const PostCard = ({ post }) => {
         </div>
       )}
       {post.desc && (
-        <p className=" text-gray-500 text-[1.15rem] px-6 py-2">{post.desc}</p>
+        <p className=" text-gray-500 lg:text-[1.15rem] text-[1rem] px-6 py-2">
+          {post.desc}
+        </p>
       )}
       {post.com && (
         <div className="flex px-6 py-2">
@@ -94,17 +98,28 @@ const PostCard = ({ post }) => {
               className="h-12 w-12 rounded-full object-cover"
             />
           )}
-          {post.name && <p className=" text-[#3d3a3a] px-2">{post.name}</p>}
+          <div>
+            {post.name && (
+              <p className=" text-[#3d3a3a] lg:px-2">{post.name}</p>
+            )}
+            {post.views && (
+              <div className="flex md:hidden gap-2 text-[0.9rem]">
+                <VisibilityIcon />
+                <p>{post.views} views</p>
+              </div>
+            )}
+          </div>
         </div>
         <div className="flex items-center">
           {post.views && (
             <>
-              <div className="flex mr-[5rem] gap-2">
+              <div className="md:flex hidden lg:mr-[5rem] mr-[1rem] gap-2">
                 <VisibilityIcon />
                 <p>{post.views} views</p>
               </div>
-              <div className="p-2 bg-gray-300 rounded-md">
+              <div className="lg:p-2 p-1 md:bg-gray-300 rounded-md flex justify-center items-center">
                 <ShareIcon />
+                <p className="md:hidden block ml-3">Share</p>
               </div>
             </>
           )}

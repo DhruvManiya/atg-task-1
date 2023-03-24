@@ -5,7 +5,7 @@ import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import FollowButton from "../ui/followButton";
 const RecamendadeGroups = ({joinGroup}) => {
   return (
-    <div className=" self-start w-[30%]">
+    <div className=" self-start w-[30%] md:block hidden">
       <div className="flex items-center border-b-[1px]">
         <LocationOnIcon className="text-[#7A7A7A]" />
         <input
@@ -25,30 +25,30 @@ const RecamendadeGroups = ({joinGroup}) => {
         </div>
         <ul className="my-8">
           <li className="flex justify-between items-center my-6">
-            <div className="flex justify-center items-center gap-4">
+            <div className="flex justify-center items-center lg:gap-4 gap-2">
               <img src="./fdp1.jpg" alt="" className="h-[2.25rem] w-[2.25rem] rounded-full object-cover" />
-              <h3 className="font-[600] text-[1.15rem]">Leisure</h3>
+              <h3 className="font-[500] lg:text-[1.15rem] text-[1rem]">Leisure</h3>
             </div>
             <FollowButton />
           </li>
           <li className="flex justify-between items-center my-6">
-            <div className="flex justify-center items-center gap-4">
+            <div className="flex justify-center items-center lg:gap-4 gap-2">
               <img src="./fdp2.jpg" alt="" className="h-[2.25rem] w-[2.25rem] rounded-full object-cover" />
-              <h3 className="font-[600] text-[1.15rem]">MBA</h3>
+              <h3 className="font-[500] lg:text-[1.15rem] text-[1rem]">MBA</h3>
             </div>
             <FollowButton />
           </li>
           <li className="flex justify-between items-center my-6">
-            <div className="flex justify-center items-center gap-4">
+            <div className="flex justify-center items-center lg:gap-4 gap-2">
               <img src="./fdp3.jpg" alt="" className="h-[2.25rem] w-[2.25rem] rounded-full object-cover" />
-              <h3 className="font-[600] text-[1.15rem]">Philosophy</h3>
+              <h3 className="font-[500] lg:text-[1.15rem] text-[1rem]">Philosophy</h3>
             </div>
             <FollowButton />
           </li>
           <li className="flex justify-between items-center my-6">
-            <div className="flex justify-center items-center gap-4">
+            <div className="flex justify-center items-center lg:gap-4 gap-2">
               <img src="./fdp4.jpg" alt="" className="h-[2.25rem] w-[2.25rem] rounded-full object-cover" />
-              <h3 className="font-[600] text-[1.15rem]">Activism</h3>
+              <h3 className="font-[500] lg:text-[1.15rem] text-[1rem]">Activism</h3>
             </div>
             <FollowButton />
           </li>
